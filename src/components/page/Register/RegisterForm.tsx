@@ -3,6 +3,7 @@
 import AuthInput from "@/components/reuseable/Inputs/AuthInput/AuthInput";
 import Link from "next/link";
 import React from "react";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const RegisterForm = () => {
   const formAction = async (formData: FormData) => {
@@ -28,8 +29,28 @@ const RegisterForm = () => {
             placeholder="Email address"
             required
           />
-
           <AuthInput name="password" type="password" placeholder="Password" />
+          <AuthInput
+            name="confirm-password"
+            type="password"
+            placeholder="confirm Password"
+          />
+
+          {/*if we have an error*/}
+          {/* {error ? (
+            <div>
+              <p className="text-red-400">{error}</p>
+            </div>
+          ) : null} */}
+          {/*Submit button*/}
+          <button
+            className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide
+          font-semibold focus:outline-none hover:bg-green_2 shadow-lg cursor-pointer transition ease-in duration-300
+          "
+            type="submit"
+          >
+            {0 ? <PulseLoader color="#fff" size={16} /> : "Sign up"}
+          </button>
         </form>
       </div>
     </div>
