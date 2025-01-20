@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const formAction = async (formData: FormData) => {
     // console.log(formData.get("name"));
     console.log(Object.fromEntries(formData));
@@ -22,7 +22,6 @@ const RegisterForm = () => {
         </div>
         {/*Form*/}
         <form action={formAction} className="mt-6 space-y-6">
-          <AuthInput name="name" type="text" placeholder="Full Name" required />
           <AuthInput
             name="email"
             type="text"
@@ -30,11 +29,6 @@ const RegisterForm = () => {
             required
           />
           <AuthInput name="password" type="password" placeholder="Password" />
-          <AuthInput
-            name="confirm-password"
-            type="password"
-            placeholder="confirm Password"
-          />
 
           {/*if we have an error*/}
           {/* {error ? (
@@ -49,16 +43,16 @@ const RegisterForm = () => {
           "
             type="submit"
           >
-            {0 ? <PulseLoader color="#fff" size={16} /> : "Sign up"}
+            {0 ? <PulseLoader color="#fff" size={16} /> : "Sign in"}
           </button>
 
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
-            <span>have an account ?</span>
+            <span>you do not have an account ?</span>
             <Link
-              href="/login"
+              href="/register"
               className=" hover:underline cursor-pointer transition ease-in duration-300"
             >
-              Sign in
+              Sign up
             </Link>
           </p>
         </form>
@@ -67,4 +61,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
