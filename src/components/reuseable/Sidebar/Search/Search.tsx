@@ -1,9 +1,13 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
 import ReturnIcon from "../../../../svg/ReturnIcon";
 import FilterIcon from "../../../../svg/FilterIcon";
 import SearchIcon from "../../../../svg/SearchIcon";
 
 const Search = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <div className="h-[49px] py-1.5">
       {/*Container*/}
@@ -11,7 +15,7 @@ const Search = () => {
         {/*Search input container*/}
         <div className="flex items-center gap-x-2">
           <div className="w-full flex dark:bg-dark_bg_2 rounded-lg pl-2">
-            {0 ? (
+            {show ? (
               <span className="w-8 flex items-center justify-center rotateAnimation cursor-pointer">
                 <ReturnIcon className="fill-green_1 w-5" />
               </span>
@@ -24,6 +28,8 @@ const Search = () => {
               type="text"
               placeholder="Search or start a new chat"
               className="input"
+              onFocus={() => setShow(true)}
+              onBlur={() => setShow(false)}
             />
           </div>
           <button className="btn">
