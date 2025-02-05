@@ -2,6 +2,7 @@ import React from "react";
 import SidebarHeader from "./SidebarHeader/SidebarHeader";
 import Notifications from "./Notifications/Notifications";
 import Search from "./Search/Search";
+import Conversations from "./Conversations/Conversations";
 
 const Sidebar = () => {
   return (
@@ -9,6 +10,7 @@ const Sidebar = () => {
       <SidebarHeader />
       <Notifications />
       <Search />
+      <Conversations />
     </div>
   );
 };
