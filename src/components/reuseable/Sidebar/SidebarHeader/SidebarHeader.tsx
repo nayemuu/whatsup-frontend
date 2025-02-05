@@ -5,7 +5,9 @@ import CommunityIcon from "../../../../svg/CommunityIcon";
 import StoryIcon from "../../../../svg/StoryIcon";
 import ChatIcon from "../../../../svg/ChatIcon";
 import DotsIcon from "../../../../svg/DotsIcon";
+import userIcon from "@/assets/icons/user.svg";
 import Menu from "./Menu";
+import Image from "next/image";
 
 const SidebarHeader = () => {
   // const { user } = useSelector((state) => state.user);
@@ -17,16 +19,9 @@ const SidebarHeader = () => {
       <div className="h-[50px] dark:bg-dark_bg_2 flex items-center p16">
         {/* container */}
         <div className="w-full flex items-center justify-between">
-          {/*user image*/}
-          {/* <button className="btn">
-              <img
-                src={user.picture}
-                alt={user.name}
-                className="w-full h-full rounded-full object-cover"
-              />
-            </button> */}
-          {/*user icons*/}
-          <div>pic</div>
+          <div className="h-[32px] rounded-full object-cover bg-[#FFFFFF] aspect-square flex justify-center items-center">
+            <Image src={userIcon} alt="userIcon" />
+          </div>
           <ul className="flex items-center gap-x-2 5">
             <li>
               <button className="btn">
