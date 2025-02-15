@@ -34,7 +34,15 @@ const Conversation = ({ conversation }) => {
             </div>
           </div>
         </div>
+
+        {/*Right*/}
+        <div className="flex flex-col gap-y-4 items-end text-xs">
+          <span className="dark:text-dark_text_2">10:02px</span>
+        </div>
       </div>
+
+      {/*Border*/}
+      <div className="ml-16 border-b dark:border-b-dark_border_1"></div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import Sidebar from "@/components/reuseable/Sidebar/Sidebar";
+import WhatsappHome from "@/components/page/Home/Home";
 import Image from "next/image";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         {/*container*/}
         <div className="container h-screen flex py-[19px]">
           <Sidebar />
+          <WhatsappHome />
         </div>
       </div>
     </>
