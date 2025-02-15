@@ -19,7 +19,7 @@ const SidebarHeader = () => {
       <div className="h-[50px] dark:bg-dark_bg_2 flex items-center p16">
         {/* container */}
         <div className="w-full flex items-center justify-between">
-          <div className="h-[32px] rounded-full object-cover bg-[#FFFFFF] aspect-square flex justify-center items-center">
+          <div className="h-[32px] rounded-full bg-[#FFFFFF] aspect-square flex justify-center items-center">
             <Image src={userIcon} alt="userIcon" />
           </div>
           <ul className="flex items-center gap-x-2 5">
