@@ -1,14 +1,30 @@
 "use client";
 
 import AuthInput from "@/components/reuseable/Inputs/AuthInput/AuthInput";
+import { useLoginMutation } from "@/redux/features/auth/authApi";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 
 const LoginForm = () => {
+  const [login, { isLoading, isError, isSuccess, data, error }] =
+    useLoginMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log("data = ", data);
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      console.log("error = ", error);
+    }
+  }, [isError]);
+
   const formAction = async (formData: FormData) => {
     // console.log(formData.get("name"));
-    console.log(Object.fromEntries(formData));
+    login({ email: "nayem.uucse@gmail.com", password: "123456" });
   };
 
   return (

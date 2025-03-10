@@ -1,8 +1,9 @@
 import { apiSlice } from "../api/apiSlice";
+import { loginResponseType, loginArgumentsType } from "./authApiTypes";
 
 export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation({
+    login: builder.mutation<loginResponseType, loginArgumentsType>({
       query: (data) => ({
         url: "/api/v1/auth/login",
         method: "POST",
@@ -12,4 +13,4 @@ export const authApi = apiSlice.injectEndpoints({
   }),
 });
 
-export const {} = authApi;
+export const { useLoginMutation } = authApi;
