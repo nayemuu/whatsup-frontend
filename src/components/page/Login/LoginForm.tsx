@@ -10,11 +10,12 @@ const LoginForm = () => {
   const [login, { isLoading, isError, isSuccess, data, error }] =
     useLoginMutation();
 
-  useEffect(() => {
-    if (isSuccess) {
-      console.log("data = ", data);
-    }
-  }, [isSuccess]);
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     console.log("data = ", data);
+  //     console.log("access Token = ", data.token.accessToken);
+  //   }
+  // }, [isSuccess]);
 
   useEffect(() => {
     if (isError) {
@@ -24,7 +25,16 @@ const LoginForm = () => {
 
   const formAction = async (formData: FormData) => {
     // console.log(formData.get("name"));
-    login({ email: "nayem.uucse@gmail.com", password: "123456" });
+    // login({ email: "nayem.uucse@gmail.com", password: "123456" });
+
+    const email = formData.get("email")?.toString().trim();
+    const password = formData.get("password")?.toString().trim();
+
+    if (email && password) {
+      login({ email, password });
+    } else {
+      console.error("Email or password is missing.");
+    }
   };
 
   return (

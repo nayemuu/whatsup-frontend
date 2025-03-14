@@ -1,8 +1,9 @@
-export type loginArgumentsType = {
+export type loginPayloadType = {
   email: string;
   password: string;
 };
 
 export type loginResponseType = {
-  accessToken: string;
+  token: { accessToken: string; refreshToken: string };
+  user: { name: string };
 };
