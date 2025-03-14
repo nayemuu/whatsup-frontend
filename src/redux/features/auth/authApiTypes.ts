@@ -5,5 +5,5 @@ export type loginPayloadType = {
 
 export type loginResponseType = {
   token: { accessToken: string; refreshToken: string };
-  user: { name: string };
+  user: { name: string; email: string; picture: string };
 };

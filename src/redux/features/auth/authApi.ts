@@ -1,4 +1,5 @@
 import { apiSlice } from "../api/apiSlice";
+import { initiateProfileInfo } from "../profile/profileSlice";
 import { loginResponseType, loginPayloadType } from "./authApiTypes";
 import { userLoggedIn } from "./authSlice";
 
@@ -29,12 +30,28 @@ export const authApi = apiSlice.injectEndpoints({
               refreshToken: result.data.token.refreshToken,
             })
           );
+          dispatch(
+            initiateProfileInfo({
+              name: result.data.user.name,
+              email: result.data.user.email,
+              picture: result.data.user.picture,
+            })
+          );
 
           localStorage.setItem(
             "auth",
             JSON.stringify({
               accessToken: result.data.token.accessToken,
               refreshToken: result.data.token.refreshToken,
+            })
+          );
+
+          localStorage.setItem(
+            "profile",
+            JSON.stringify({
+              name: result.data.user.name,
+              email: result.data.user.email,
+              picture: result.data.user.picture,
             })
           );
         } catch (error) {
