@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useRouter } from "next/navigation";
+import PublicRoute from "@/components/reuseable/PublicRoute/PublicRoute";
 
 type APIError = {
   status: number;
@@ -52,60 +53,62 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Container */}
-      <div className="w-full max-w-md space-y-8 p-10 dark:bg-dark_bg_2 rounded-xl">
-        {/*Heading*/}
-        <div className="text-center dark:text-dark_text_1">
-          <h2 className="mt-6 text-3xl font-bold">Welcome</h2>
-          <p className="mt-2 text-sm">Sign up</p>
-        </div>
-        {/*Form*/}
-        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
-          <AuthInput
-            value={email}
-            setValue={setEmail}
-            type="text"
-            placeholder="Email address"
-            required
-          />
-          <AuthInput
-            value={password}
-            setValue={setPassword}
-            type="password"
-            placeholder="Password"
-          />
+    <PublicRoute>
+      <div className="min-h-screen w-full flex items-center justify-center overflow-hidden">
+        {/* Container */}
+        <div className="w-full max-w-md space-y-8 p-10 dark:bg-dark_bg_2 rounded-xl">
+          {/*Heading*/}
+          <div className="text-center dark:text-dark_text_1">
+            <h2 className="mt-6 text-3xl font-bold">Welcome</h2>
+            <p className="mt-2 text-sm">Sign up</p>
+          </div>
+          {/*Form*/}
+          <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+            <AuthInput
+              value={email}
+              setValue={setEmail}
+              type="text"
+              placeholder="Email address"
+              required
+            />
+            <AuthInput
+              value={password}
+              setValue={setPassword}
+              type="password"
+              placeholder="Password"
+            />
 
-          {/*if we have an error*/}
-          {error && (
-            <div>
-              <p className="text-red-400">
-                {(error as APIError)?.data?.message || "Something Went Wrong"}
-              </p>
-            </div>
-          )}
+            {/*if we have an error*/}
+            {error && (
+              <div>
+                <p className="text-red-400">
+                  {(error as APIError)?.data?.message || "Something Went Wrong"}
+                </p>
+              </div>
+            )}
 
-          <button
-            className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide
+            <button
+              className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide
           font-semibold focus:outline-none hover:bg-green_2 shadow-lg cursor-pointer transition ease-in duration-300
           "
-            type="submit"
-          >
-            {isLoading ? <PulseLoader color="#fff" size={16} /> : "Sign in"}
-          </button>
-
-          <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
-            <span>you do not have an account ?</span>
-            <Link
-              href="/register"
-              className=" hover:underline cursor-pointer transition ease-in duration-300"
+              type="submit"
             >
-              Sign up
-            </Link>
-          </p>
-        </form>
+              {isLoading ? <PulseLoader color="#fff" size={16} /> : "Sign in"}
+            </button>
+
+            <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
+              <span>you do not have an account ?</span>
+              <Link
+                href="/register"
+                className=" hover:underline cursor-pointer transition ease-in duration-300"
+              >
+                Sign up
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
-    </div>
+    </PublicRoute>
   );
 };
 

@@ -2,10 +2,11 @@ import Sidebar from "@/components/reuseable/Sidebar/Sidebar";
 import WhatsappHome from "@/components/page/Home/Home";
 import Image from "next/image";
 import ChatContainer from "@/components/page/Home/Chat/ChatContainer";
+import ProtectedRoute from "@/components/reuseable/ProtectedRoute/ProtectedRoute";
 
 export default function Home() {
   return (
-    <>
+    <ProtectedRoute>
       <div className="h-screen dark:bg-dark_bg_1 flex items-center justify-center overflow-hidden">
         {/*container*/}
         <div className="container h-screen flex py-[19px]">
@@ -14,6 +15,6 @@ export default function Home() {
           <ChatContainer />
         </div>
       </div>
-    </>
+    </ProtectedRoute>
   );
 }
